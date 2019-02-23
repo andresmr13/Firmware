@@ -942,8 +942,8 @@ FixedwingPositionControl::control_position(const Vector2f &curr_pos, const Vecto
 			/* waypoint is a loiter waypoint */
 			_l1_control.navigate_loiter(curr_wp, curr_pos, pos_sp_curr.loiter_radius,
 						    pos_sp_curr.loiter_direction, nav_speed_2d);
-			_att_sp.roll_body = _l1_control.get_roll_setpoint();
-			_att_sp.yaw_body = _l1_control.nav_bearing();
+			_att_sp.roll_body = _l1_control.get_roll_setpoint()*1.5f;
+			_att_sp.yaw_body = _l1_control.nav_bearing()*1.5f;
 
 			float alt_sp = pos_sp_curr.alt;
 
